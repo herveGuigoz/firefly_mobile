@@ -17,11 +17,19 @@ dependencies:
   dio: ^3.0.10
   flutter_hooks: ^0.15.0
   hooks_riverpod: ^0.12.1
+
+  # Cache
+  hive: ^1.4.4+1
+  path_provider: ^1.6.24
+  synchronized: ^2.2.0+2
+  
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mockito: ^4.1.0
+  uuid: ^2.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
