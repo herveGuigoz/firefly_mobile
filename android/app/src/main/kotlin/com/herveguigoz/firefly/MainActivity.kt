@@ -82,7 +82,14 @@ class MainActivity: FlutterActivity() {
         val clientSecret: String = call.argument<String>("clientSecret")!!
         val authorizationEndpoint: String = call.argument<String>("authorizationEndpoint")!!
         val redirectUri: String = call.argument<String>("redirectUri")!!
-        val oAuthManager = OAuthManager(clientId, clientSecret, authorizationEndpoint, redirectUri)
+        val toolbarColor : String? = call.argument<String>("toolbarColor")
+        val oAuthManager = OAuthManager(
+                clientId,
+                clientSecret,
+                authorizationEndpoint,
+                redirectUri,
+                toolbarColor
+        )
         oAuthManager.authorize(this)
     }
 }

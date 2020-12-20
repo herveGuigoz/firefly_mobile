@@ -44,7 +44,7 @@ class DeepLinkBloc extends _Bloc {
 
 final deepLinkBloc = StreamProvider<String>((ref) {
   final bloc = DeepLinkBloc();
-  ref.onDispose(bloc.dispose);
+  // ref.onDispose(bloc.dispose);
 
   return bloc.state;
 });

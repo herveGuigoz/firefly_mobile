@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-abstract class DartServerMixin {
+class DartServer {
   HttpServer server;
 
   Future<void> runDartServer() async {
