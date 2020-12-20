@@ -1,9 +1,10 @@
-import 'package:firefly/oauth/oauth.dart';
+import 'package:firefly/home.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/all.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(App());
+  runApp(ProviderScope(child: App()));
 }
 
 class App extends StatelessWidget {
@@ -15,42 +16,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Auth(),
-    );
-  }
-}
-
-class Auth extends StatefulWidget {
-  Auth({Key key}) : super(key: key);
-
-  @override
-  _AuthState createState() => _AuthState();
-}
-
-class _AuthState extends State<Auth> {
-  final oauth = Oauth();
-  String token = '';
-
-  Future<void> _login() async {
-    final tokenModel = await oauth.getToken();
-    print(tokenModel.accessToken);
-    setState(() {
-      token = tokenModel.expiresIn.toString();
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Text(token),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async => _login(),
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      home: Home(),
     );
   }
 }
